@@ -9,7 +9,7 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QFrame, QVBox
 from PySide6.QtGui import QPixmap, Qt, QFont, QIcon, QImage
 from PySide6.QtCore import QSize
 
-from qualquer_coisa import determine_condition
+from condition import determine_condition
 
 # Nova classe para a janela de detalhes de pagamento
 class PaymentDetailsWindow(QMainWindow):
@@ -105,14 +105,14 @@ class PaymentDetailsWindow(QMainWindow):
         name_frame = QFrame()
         name_layout = QVBoxLayout(name_frame)
         name_label = QLabel("Nome do Veículo:")
-        name_label.setFont(QFont("Roboto", 12, QFont.Bold))
+        name_label.setFont(QFont("Roboto", 14, QFont.Bold))
         name_label.setStyleSheet("color: #2c3e50;")
         name_layout.addWidget(name_label)
         self.vehicle_name_input = QLineEdit()
         self.vehicle_name_input.setStyleSheet("""
-            font-size: 18px;
+            font-size: 16px;
             border: 1px solid #d1d5db;
-            border-radius: 8px;
+            border-radius: 5px;
             padding: 10px;
             background-color: #f9f9f9;
         """)
@@ -126,14 +126,14 @@ class PaymentDetailsWindow(QMainWindow):
         desc_frame = QFrame()
         desc_layout = QVBoxLayout(desc_frame)
         desc_label = QLabel("Descrição:")
-        desc_label.setFont(QFont("Roboto", 12, QFont.Bold))
+        desc_label.setFont(QFont("Roboto", 14, QFont.Bold))
         desc_label.setStyleSheet("color: #2c3e50;")
         desc_layout.addWidget(desc_label)
         self.vehicle_desc_input = QLineEdit()
         self.vehicle_desc_input.setStyleSheet("""
-            font-size: 18px;
+            font-size: 16px;
             border: 1px solid #d1d5db;
-            border-radius: 8px;
+            border-radius: 5px;
             padding: 10px;
             background-color: #f9f9f9;
         """)
@@ -147,11 +147,11 @@ class PaymentDetailsWindow(QMainWindow):
 
         # Lado direito: Formulário
         right_layout = QVBoxLayout()
-        right_layout.setSpacing(15)
+        right_layout.setSpacing(5)
 
         # Título do formulário
         form_title = QLabel("Informações do Comprador")
-        form_title.setFont(QFont("Roboto", 16, QFont.Bold))
+        form_title.setFont(QFont("Roboto", 22, QFont.Bold))
         form_title.setStyleSheet("color: #2c3e50; margin-bottom: 10px;")
         right_layout.addWidget(form_title)
 
@@ -159,15 +159,15 @@ class PaymentDetailsWindow(QMainWindow):
         name_frame = QFrame()
         name_layout = QVBoxLayout(name_frame)
         name_label = QLabel("Nome Completo:*")
-        name_label.setFont(QFont("Roboto", 12))
+        name_label.setFont(QFont("Roboto", 14))
         name_label.setStyleSheet("color: #2c3e50;")
         name_layout.addWidget(name_label)
         self.buyer_name = QLineEdit()
         self.buyer_name.setPlaceholderText("Digite seu nome completo")
         self.buyer_name.setStyleSheet("""
-            font-size: 14px;
+            font-size: 16px;
             border: 1px solid #d1d5db;
-            border-radius: 8px;
+            border-radius: 5px;
             padding: 10px;
         """)
         self.buyer_name.setFixedHeight(40)
@@ -178,15 +178,15 @@ class PaymentDetailsWindow(QMainWindow):
         email_frame = QFrame()
         email_layout = QVBoxLayout(email_frame)
         email_label = QLabel("Email:*")
-        email_label.setFont(QFont("Roboto", 12))
+        email_label.setFont(QFont("Roboto", 14))
         email_label.setStyleSheet("color: #2c3e50;")
         email_layout.addWidget(email_label)
         self.buyer_email = QLineEdit()
         self.buyer_email.setPlaceholderText("Digite seu email")
         self.buyer_email.setStyleSheet("""
-            font-size: 14px;
+            font-size: 16px;
             border: 1px solid #d1d5db;
-            border-radius: 8px;
+            border-radius: 5px;
             padding: 10px;
         """)
         self.buyer_email.setFixedHeight(40)
@@ -197,15 +197,15 @@ class PaymentDetailsWindow(QMainWindow):
         phone_frame = QFrame()
         phone_layout = QVBoxLayout(phone_frame)
         phone_label = QLabel("Telefone:*")
-        phone_label.setFont(QFont("Roboto", 12))
+        phone_label.setFont(QFont("Roboto", 14))
         phone_label.setStyleSheet("color: #2c3e50;")
         phone_layout.addWidget(phone_label)
         self.buyer_phone = QLineEdit()
         self.buyer_phone.setPlaceholderText("Digite seu telefone")
         self.buyer_phone.setStyleSheet("""
-            font-size: 14px;
+            font-size: 16px;
             border: 1px solid #d1d5db;
-            border-radius: 8px;
+            border-radius: 5px;
             padding: 10px;
         """)
         self.buyer_phone.setFixedHeight(40)
@@ -224,8 +224,8 @@ class PaymentDetailsWindow(QMainWindow):
         self.payment_method.setStyleSheet("""
             font-size: 14px;
             border: 1px solid #d1d5db;
-            border-radius: 8px;
-            padding: 10px;
+            border-radius: 5px;
+            padding: 5px;
         """)
         self.payment_method.setFixedHeight(40)
         payment_layout.addWidget(self.payment_method)
@@ -244,13 +244,14 @@ class PaymentDetailsWindow(QMainWindow):
         cancel_btn = QPushButton("Cancelar")
         cancel_btn.setStyleSheet("""
             QPushButton {
-                background-color: #95a5a6;
-                color: white;
-                font-size: 14px;
-                font-weight: bold;
-                border-radius: 8px;
-                padding: 10px;
-                min-width: 120px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Roboto', 'Sans';
+            font-weight: bold;
+            padding: 8px 16px;
             }
             QPushButton:hover {
                 background-color: #7f8c8d;
@@ -262,13 +263,14 @@ class PaymentDetailsWindow(QMainWindow):
         confirm_btn = QPushButton("Confirmar Compra")
         confirm_btn.setStyleSheet("""
             QPushButton {
-                background-color: #2c3e50;
-                color: white;
-                font-size: 14px;
-                font-weight: bold;
-                border-radius: 8px;
-                padding: 10px;
-                min-width: 120px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Roboto', 'Sans';
+            font-weight: bold;
+            padding: 8px 16px;
             }
             QPushButton:hover {
                 background-color: #27ae60;
